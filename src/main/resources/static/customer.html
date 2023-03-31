@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Customer Info</title>
+
+<link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.1.0/css/fixedColumns.dataTables.min.css" />
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/jquery-file-upload/4.0.11/uploadfile.min.css">
+<link rel="stylesheet" href="css/app.css" />
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/datatables.net-fixedcolumns/4.1.0/dataTables.fixedColumns.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.12.1/dataRender/ellipsis.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+<!--script src="https://fastly.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script-->
+<script src="js/jquery.ui.widget.js"></script>
+<script src="js/jquery.fileupload.js"></script>
+
+</head>
+<body>
+ <ul class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Basic Info</a></li>
+  <li class="active">Customer Info</li>
+ </ul>
+ <div id="d1" style="display: none"></div>
+ <div id="d2" style="display: none"></div>
+
+ <div class="modal fade" id="myEditDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+ <div class="modal fade" id="myUploadDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+ <br />
+ <p />
+ <div>
+  <button type="button" class="btn btn-default" onclick="queryCustomer()">Query</button>
+  <button type="button" class="btn btn-default" onclick="newCustomer()">New</button>
+  <button type="button" class="btn btn-default" onclick="editCustomer()">Edit</button>
+  <button type="button" class="btn btn-default" onclick="deleteCustomer()">Delete</button>
+  <button type="button" class="btn btn-default" onclick="importCustomer()">Import</button>
+  <button type="button" class="btn btn-default" onclick="exportCustomer()">Export</button>
+
+ </div>
+ <br />
+
+ <table id="myTable" class="display" style="width: 100%">
+  <!-- caption>Customer List</caption-->
+  <thead>
+   <tr>
+    <th width="25px"><input id="checkAll" type="checkbox" name="" value=""></th>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Company</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Zip Code</th>
+    <th>Phone</th>
+    <th>Fax</th>
+    <th>Email</th>
+    <th>Support Rep.</th>
+    <th>Create By</th>
+    <th>Create Date</th>
+    <th>Update By</th>
+    <th>Update Date</th>
+    <!--  th>SupportRepId</th>-->
+   </tr>
+  </thead>
+  <tbody id="tbody">
+
+  </tbody>
+
+ </table>
+
+ <script src="js/app.js"></script>
+ <script src="js/customer.js"></script>
+</body>
+</html>

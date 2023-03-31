@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>file upload with jQuery</title>
+<link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.css" />
+<link rel="stylesheet" href="css/app.css" />
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.js"></script>
+
+</head>
+
+<body>
+<h2>Upload File Test</h2>
+ <form role="form">
+  <div class="form-group">
+   <label for="file">Please select file</label> 
+   <input type="file" id="file" name="file" />
+
+  </div>
+  <input type="button" class="btn btn-default" value="Upload" id="but_upload">
+ </form>
+
+ <br /> Upload Result:
+ <div id="result"></div>
+ <script type="text/javascript">
+		$(document).ready(function() {
+			$("#but_upload").click(function() {
+				$("#result").html("");
+				$(document.body).css("cursor", "progress");
+				var fd = new FormData();
+				var files = $('#file')[0].files[0];
+				fd.append('fileupload', files);
+				$.ajax({
+					url : 'uploadserver',
+					type : 'post',
+					data : fd,
+					contentType : false,
+					processData : false,
+					success : function(result) {
+						$(document.body).css("cursor", "default");
+						$("#result").JSONView(result);
+					},
+					error : function(xhr) {
+						$(document.body).css("cursor", "default");
+						$("#result").html(xhr.status + " " + xhr.statusText);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+
+</html>

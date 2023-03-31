@@ -1,0 +1,42 @@
+.glyphicon-question-sign {
+	color: darkblue;
+	font-size: 30px;
+}
+
+.glyphicon-info-sign {
+	color: darkblue;
+	font-size: 30px;
+}
+
+.glyphicon-remove {
+	color: darkred;
+	font-size: 30px;
+}
+
+.glyphicon-remove-circle {
+	color: darkred;
+	font-size: 30px;
+}
+
+body {
+   margin-left: 10px;
+   margin-right: 10px
+}
+
+tr {
+   text-align: middle;
+   white-space: nowrap;
+}
+
+sel {
+   width: 25px;
+   text-align: center;
+}
+
+/*必填项前加红色星号*/
+.form-group.required .control-label:before {
+    color: red;
+    content: "*";
+    position: absolute;
+    margin-left: -15px;
+}

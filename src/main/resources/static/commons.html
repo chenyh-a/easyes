@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+ <div id="myExportResult" class="modal-body">
+  Export file: <a id="export_url">export_url</a> <br /> Total <strong><span id="exp_total"></span></strong> records
+  consumed in milliseconds: <span id="exp_consumed"></span>
+ </div>
+
+ <div id="myImportResult" class="modal-body">
+  <strong>Uploaded file:</strong> <span id="upload_file"></span><br /> <strong>Import Result:</strong> Total=<strong><span
+   id="imp_total"></span></strong> success=<strong><span id="imp_success"></span></strong> error=<strong><span
+   id="imp_error"></span></strong> in milliseconds: <span id="imp_consumed"></span>
+  <div id="imp_file" style="display: none">
+   Result file: <a id="import_url">import_error_file</a>
+  </div>
+ </div>
+
+
+ <div id="upload_dialog" class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Please select a file</h4>
+   </div>
+
+   <div>
+    <!--  button type="button" class="btn btn-default" onclick="fileupload.click()">Choose File</button>
+    <div class="col-sm-9">
+     <input type="text" id="filename" class="form-control" readonly/>
+    </div-->
+    &nbsp; <input id="myfile" class="btn col-sm-10" type="file" />&nbsp;
+   </div>
+   <br />
+   <div class="modal-footer">
+    <button type="button" class="btn btn-primary" id="up_btn">Import</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   </div>
+  </div>
+ </div>
+
+</body>
+</html>

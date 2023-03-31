@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>WebSocket Test</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no'
+	name='viewport' />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+</head>
+<body>
+	Welcome
+	<br />
+	<input id="text" type="text" value='Hello world!' />
+	<button onclick="send()">Send</button>
+	<hr />
+	<button onclick="closeWebSocket()">Close WebSocket</button>
+	<hr />
+	<div id="message"></div>
+</body>
+
+<script type="text/javascript">
+	var websocket = null;
+	// browser support WebSocket?
+	if ('WebSocket' in window) {
+		websocket = new WebSocket("ws://localhost:8080/simpleweb/websocket");
+	} else {
+		alert('Current browser Not support websocket')
+	}
+
+	//onerror event
+	websocket.onerror = function() {
+		setMessageInnerHTML("WebSocket Error");
+	};
+
+	//WebSocked connected.
+	websocket.onopen = function() {
+		setMessageInnerHTML("WebSocket Connected");
+	}
+
+	//Received message from server
+	websocket.onmessage = function(event) {
+		setMessageInnerHTML(event.data);
+	}
+
+	//onclose event
+	websocket.onclose = function() {
+		setMessageInnerHTML("WebSocket Closed");
+	}
+
+	//close websocket before browser closing，avoiding server side error。
+	window.onbeforeunload = function() {
+		closeWebSocket();
+	}
+
+	//display message on page
+	function setMessageInnerHTML(innerHTML) {
+		document.getElementById('message').innerHTML += innerHTML + '<br/>';
+	}
+
+	//close WebSocket connection
+	function closeWebSocket() {
+		websocket.close();
+	}
+
+	//send message
+	function send() {
+		var message = document.getElementById('text').value;
+		websocket.send(message);
+	}
+</script>
+</html>
